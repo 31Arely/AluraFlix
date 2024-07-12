@@ -1,0 +1,23 @@
+.pie {
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Fijar posición absoluta */
+    bottom: 0; /* Alinear al fondo */
+    left: 0; /* Alinear a la izquierda */
+    width: 100%; /* Ocupar todo el ancho */
+    height: 60px; /* Altura deseada */
+}
+
+.pie h2 {
+    display: flex;
+    align-items: center;
+}
+
+.pie h2 img {
+    width: 50px;
+    margin-left: 10px;
+}

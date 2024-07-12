@@ -1,0 +1,76 @@
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em 10em;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logoContainer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.cabecera img {
+    align-self: start;
+}
+
+.cabecera span {
+    align-self: end;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    margin-left: 8px;
+    font-size: 1.5rem;
+}
+
+.botonHome {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botonNuevoVideo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    background-color: #0056b3;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
