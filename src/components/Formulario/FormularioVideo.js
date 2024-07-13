@@ -1,23 +1,56 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./FormularioVideo.module.css";
 import Cabecera from "../Cabecera/Cabecera";
 import Pie from "../Pie";
 
-function FormularioVideo() {
+function FormularioVideo({ onSubmit }) {
+    const navigate = useNavigate();
+
     const [titulo, setTitulo] = useState("");
     const [categoria, setCategoria] = useState("");
     const [imagen, setImagen] = useState("");
     const [video, setVideo] = useState("");
     const [descripcion, setDescripcion] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Datos del formulario:", { titulo, categoria, imagen, video, descripcion });
-        setTitulo("");
-        setCategoria("");
-        setImagen("");
-        setVideo("");
-        setDescripcion("");
+        setLoading(true);
+        setError("");
+
+        const nuevoVideo = { titulo, categoria, imagen, video, descripcion };
+
+        try {
+            const response = await fetch("http://localhost:3000/videos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(nuevoVideo),
+            });
+
+            if (!response.ok) {
+                throw new Error("Error al crear el video");
+            }
+
+            const data = await response.json();
+            if (onSubmit) {
+                onSubmit({ ...nuevoVideo, id: data.id });
+            }
+            setTitulo("");
+            setCategoria("");
+            setImagen("");
+            setVideo("");
+            setDescripcion("");
+
+            navigate("/"); // Redirige a la página principal después de guardar
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleLimpiar = () => {
@@ -33,6 +66,7 @@ function FormularioVideo() {
             <Cabecera />
             <form className={styles.formulario} onSubmit={handleSubmit}>
                 <h2>Nuevo Video</h2>
+                {error && <p className={styles.error}>{error}</p>}
                 <div className={styles.formGroup}>
                     <label htmlFor="titulo">Título</label>
                     <input
@@ -56,7 +90,7 @@ function FormularioVideo() {
                         <option value="" disabled>escoja una categoría</option>
                         <option value="Frontend">Frontend</option>
                         <option value="Backend">Backend</option>
-                        <option value="Inovacion y Gestion">Inovacion y Gestion</option>
+                        <option value="Innovación y Gestión">Innovación y Gestión</option>
                         <option value="DevOps">DevOps</option>
                     </select>
                 </div>
@@ -97,7 +131,7 @@ function FormularioVideo() {
                 </div>
 
                 <div className={styles.buttons}>
-                    <button type="submit">Guardar</button>
+                    <button type="submit" disabled={loading}>{loading ? "Guardando..." : "Guardar"}</button>
                     <button type="button" onClick={handleLimpiar}>Limpiar</button>
                 </div>
             </form>
@@ -107,3 +141,4 @@ function FormularioVideo() {
 }
 
 export default FormularioVideo;
+

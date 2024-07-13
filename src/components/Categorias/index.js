@@ -1,22 +1,31 @@
+import React from "react";
 import styles from "./Categorias.module.css";
+import VideoCard from "../VideoCard/VideoCard";
 
-function Categorias() {
+function Categorias({ videos }) {
+    const categorias = ["Frontend", "Backend", "Innovación y Gestión", "DevOps"];
+
     return (
         <div className={styles.categoriasContainer}>
-            <div className={styles.categoria}>
-                <h3>Frontend</h3>
-            </div>
-            <div className={styles.categoria}>
-                <h3>Backend</h3>
-            </div>
-            <div className={styles.categoria}>
-                <h3>Innovación y Gestión</h3>
-            </div>
-            <div className={styles.categoria}>
-                <h3>DevOps</h3>
-            </div>
+            {categorias.map((categoria) => (
+                <div key={categoria} className={styles.categoria}>
+                    <h3>{categoria}</h3>
+                    {videos
+                        .filter((video) => video.categoria === categoria)
+                        .map((video) => (
+                            <VideoCard 
+                                key={video.id} 
+                                video={video} 
+                                onDelete={() => {}} 
+                                onEdit={() => {}} 
+                            />
+                        ))}
+                </div>
+            ))}
         </div>
     );
 }
 
+
 export default Categorias;
+

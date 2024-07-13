@@ -1,0 +1,45 @@
+.video-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.video-details {
+    padding: 16px;
+    flex: 1;
+}
+
+.video-details h3 {
+    margin: 0 0 10px;
+}
+
+.video-details p {
+    margin: 4px 0;
+}
+
+.video-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-actions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.video-actions button:hover {
+    background-color: #0056b3;
+}
