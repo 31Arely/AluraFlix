@@ -1,18 +1,16 @@
-/* Aplicar fondo negro solo a la página del formulario */
 .pagina-formulario {
-    background-color: #000; /* Color de fondo negro */
-    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
+    background-color: #000; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
 
-/* Estilos para el formulario dentro de la página */
 .formulario {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem;
-    background-color: #1c1c1c; /* Color de fondo del formulario */
+    background-color: #1c1c1c; 
     color: #fff;
     border-radius: 8px;
     max-width: 800px;

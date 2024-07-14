@@ -1,50 +1,40 @@
-/*import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Inicio from "./pages/inicio";
-
-function AppRoutes (){
-    return(
-        <BrowserRouter>
-        <Routes>
-            <Route path= "/" element= {<Inicio/>}></Route>
-        </Routes>
-
-        </BrowserRouter>
-    )
-}
-
-export default AppRoutes;*/
-
-/*import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Inicio from "./pages/inicio";
 import FormularioVideo from "./components/Formulario/FormularioVideo";
 
 function AppRoutes() {
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/videos")
+            .then((response) => response.json())
+            .then((data) => setVideos(data))
+            .catch((error) => console.error("Error al cargar videos:", error));
+    }, []);
+
+    const handleAddVideo = (nuevoVideo) => {
+        setVideos((prevVideos) => [...prevVideos, nuevoVideo]);
+    };
+
+    const handleDeleteVideo = (id) => {
+        // Implementar la lógica de borrado aquí
+    };
+
+    const handleEditVideo = (id) => {
+        // Implementar la lógica de edición aquí
+    };
+
     return (
-        <BrowserRouter>
+        <Router>
             <Routes>
-                <Route path="*" element={<Inicio />} />
-                <Route path="/NuevoVideo" element={<FormularioVideo />} />
+                <Route
+                    path="/"
+                    element={<Inicio videos={videos} onDelete={handleDeleteVideo} onEdit={handleEditVideo} />}
+                />
+                <Route path="/NuevoVideo" element={<FormularioVideo onSubmit={handleAddVideo} />} />
             </Routes>
-        </BrowserRouter>
-    );
-}
-
-export default AppRoutes;*/
-
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Inicio from "./pages/inicio";
-import FormularioVideo from "./components/Formulario/FormularioVideo";
-
-function AppRoutes() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Inicio />} />  {/*Asegúrate de tener esta ruta configurada */}
-                <Route path="/NuevoVideo" element={<FormularioVideo />} />
-                <Route path="*" element={<Inicio />} /> {/*Asegúrate de tener una ruta comodín para manejar rutas no definidas*/}
-            </Routes>
-        </BrowserRouter>
+        </Router>
     );
 }
 

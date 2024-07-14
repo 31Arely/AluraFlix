@@ -1,45 +1,68 @@
-.video-card {
-    border: 1px solid #ccc;
+.videoCardContainer {
+    position: relative;
+    width: 300px;
     border-radius: 8px;
     overflow: hidden;
-    display: flex;
-    margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1c1c1c;
+    border: 4px solid rgb(5, 242, 250);
+    margin: 10px;
 }
 
-.video-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+.videoCardContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.video-details {
-    padding: 16px;
-    flex: 1;
+.videoThumbnail {
+    width: 100%;
+    height: auto;
 }
 
-.video-details h3 {
-    margin: 0 0 10px;
+.videoInfo {
+    padding: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
-.video-details p {
-    margin: 4px 0;
+.videoTitle {
+    margin: 10px 0;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: #fff;
 }
 
-.video-actions {
+.actionButtons {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+    background-color: #000;
 }
 
-.video-actions button {
-    background-color: #007bff;
-    color: white;
+.actionButtons button {
+    background: none;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
 }
 
-.video-actions button:hover {
-    background-color: #0056b3;
+.actionButtons button:hover {
+    color: #00f;
+}
+
+.deleteButton {
+    color: #f00;
+}
+
+.editButton {
+    color: #0f0;
+}
+
+.actionIcon {
+    font-size: 1.2em;
 }

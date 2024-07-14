@@ -87,7 +87,7 @@ function FormularioVideo({ onSubmit }) {
                         onChange={(e) => setCategoria(e.target.value)}
                         required
                     >
-                        <option value="" disabled>escoja una categoría</option>
+                        <option value="">Escoja una categoría</option>
                         <option value="Frontend">Frontend</option>
                         <option value="Backend">Backend</option>
                         <option value="Innovación y Gestión">Innovación y Gestión</option>
@@ -141,4 +141,3 @@ function FormularioVideo({ onSubmit }) {
 }
 
 export default FormularioVideo;
-

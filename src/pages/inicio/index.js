@@ -1,13 +1,40 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Cabecera from "../../components/Cabecera/Cabecera";
-import Pie from "../../components/Pie";
-import Banner from "../../components/Banner";
-import Titulo from "../../components/Titulo";
-import Categorias from "../../components/Categorias";
-import FormularioVideo from "../../components/Formulario/FormularioVideo"; // Importar el componente del formulario
+import Pie from "../../components/Pie"; 
+import Banner from "../../components/Banner"; 
+import Titulo from "../../components/Titulo"; 
+import Categorias from "../../components/Categorias"; 
 
-function Inicio({ videos }) {
+function Inicio() {
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/videos')
+            .then(response => response.json())
+            .then(data => setVideos(data))
+            .catch(error => console.error('Error fetching videos:', error));
+    }, []);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3000/videos/${id}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                setVideos(prevVideos => prevVideos.filter(video => video.id !== id));
+            } else {
+                console.error('Error deleting video');
+            }
+        })
+        .catch(error => console.error('Error deleting video:', error));
+    };
+
+
+    const handleEdit = (id) => {
+        // Implementar lógica para editar el video
+        console.log('Edit video with id:', id);
+    };
+
     return (
         <>
             <Cabecera />
@@ -15,36 +42,10 @@ function Inicio({ videos }) {
             <Titulo>
                 <h1>Un lugar para aprender sobre tecnología</h1>
             </Titulo>
-            <Categorias videos={videos} />
+            <Categorias videos={videos} onDelete={handleDelete} onEdit={handleEdit} />
             <Pie />
         </>
     );
 }
 
-function App() {
-    const [videos, setVideos] = useState([]);
-
-    const handleAddVideo = (nuevoVideo) => {
-        setVideos([...videos, nuevoVideo]);
-    };
-
-    return (
-        <Routes>
-            <Route 
-                path="/" 
-                element={
-                    <Inicio videos={videos} />
-                } 
-            />
-            <Route 
-                path="/NuevoVideo" 
-                element={
-                    <FormularioVideo onSubmit={handleAddVideo} />
-                } 
-            />
-        </Routes>
-    );
-}
-
-export default App;
-
+export default Inicio;

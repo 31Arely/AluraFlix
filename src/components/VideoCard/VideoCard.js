@@ -1,22 +1,34 @@
-import "./VideoCard.module.css"
+import React from 'react';
+import styles from './VideoCard.module.css';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
-const VideoCard = ({ video, onDelete, onEdit }) => {
-    const { title, category, image, description } = video;
-
+function VideoCard({ video, onDelete, onEdit }) {
     return (
-        <div className="video-card">
-            <img src={image} alt={title} className="video-image" />
-            <div className="video-details">
-                <h3>{title}</h3>
-                <p>{category}</p>
-                <p>{description}</p>
-                <div className="video-actions">
-                    <button onClick={onEdit}>Edit</button>
-                    <button onClick={onDelete}>Delete</button>
-                </div>
+        <div className={styles.videoCardContainer}>
+            <img 
+                src={video.imagen} 
+                alt={video.titulo} 
+                className={styles.videoThumbnail}
+            />
+            <div className={styles.videoInfo}>
+                <h3 className={styles.videoTitle}>{video.titulo}</h3>
+            </div>
+            <div className={styles.actionButtons}>
+                <button 
+                    className={`${styles.deleteButton}`} 
+                    onClick={() => onDelete(video.id)}
+                >
+                    <FaTrash className={styles.actionIcon} /> Borrar
+                </button>
+                <button 
+                    className={`${styles.editButton}`} 
+                    onClick={() => onEdit(video)}
+                >
+                    <FaEdit className={styles.actionIcon} /> Editar
+                </button>
             </div>
         </div>
     );
-};
+}
 
 export default VideoCard;
