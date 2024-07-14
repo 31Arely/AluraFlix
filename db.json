@@ -2,11 +2,59 @@
   "videos": [
     {
       "id": "80f6",
-      "titulo": "aasfdsf",
-      "categoria": "Innovación y Gestión",
+      "titulo": "Programacion",
+      "categoria": "Frontend",
       "imagen": "https://blog.glajumedia.com/wp-content/uploads/2020/07/digital-security-for-nonprofits-techsoup-courses-1024x512.png",
       "video": "https://youtu.be/T-Fycc0TRTQ?si=PKH8qEjq8LNo8dlw",
       "descripcion": "prueba3"
+    },
+    {
+      "id": "9d6e",
+      "titulo": "java",
+      "categoria": "Backend",
+      "imagen": "https://www.jrebel.com/sites/default/files/image/2020-05/image-blog-revel-top-java-tools.jpg",
+      "video": "https://youtu.be/L1oMLsiMusQ?feature=shared",
+      "descripcion": "javaBackend"
+    },
+    {
+      "id": "2371",
+      "titulo": "Frontend",
+      "categoria": "DevOps",
+      "imagen": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*IkTjQmOjKHNq4VCwhkNQfQ.png",
+      "video": "https://youtu.be/N8mFHB7JDkw?si=1BpenbwKMm_5zML-",
+      "descripcion": "definicion"
+    },
+    {
+      "id": "7c3d",
+      "titulo": "Inovación",
+      "categoria": "Innovación y Gestión",
+      "imagen": "https://distilledinnovation.co/wp-content/uploads/2022/11/file-25.jpg",
+      "video": "https://youtu.be/EIvWwe8pc6c?si=bDU1ydb9Vw9-Ou1R",
+      "descripcion": "Definicion"
+    },
+    {
+      "id": "9f49",
+      "titulo": "Para saber mas ",
+      "categoria": "DevOps",
+      "imagen": "https://community.aws/_next/image?url=https%3A%2F%2Fcommunity.aws%2Fraw-post-images%2Fconcepts%2Fdevops-essentials%2Fimages%2Fdevops_loop.jpeg%3FimgSize%3D1600x960&w=1920&q=75",
+      "video": "https://youtu.be/p-bOnV8FRMQ?si=nAQqxRiHMZEqIPG6",
+      "descripcion": "que es dev?"
+    },
+    {
+      "id": "09c9",
+      "titulo": "Software",
+      "categoria": "Frontend",
+      "imagen": "https://community.aws/_next/image?url=https%3A%2F%2Fcommunity.aws%2Fraw-post-images%2Fconcepts%2Fdevops-essentials%2Fimages%2Fdevops_loop.jpeg%3FimgSize%3D1600x960&w=1920&q=75",
+      "video": "https://youtu.be/p-bOnV8FRMQ?si=nAQqxRiHMZEqIPG6",
+      "descripcion": "asd"
+    },
+    {
+      "id": "4a69",
+      "titulo": "Desarrollo",
+      "categoria": "Backend",
+      "imagen": "https://community.aws/_next/image?url=https%3A%2F%2Fcommunity.aws%2Fraw-post-images%2Fconcepts%2Fdevops-essentials%2Fimages%2Fdevops_loop.jpeg%3FimgSize%3D1600x960&w=1920&q=75",
+      "video": "https://youtu.be/p-bOnV8FRMQ?si=nAQqxRiHMZEqIPG6",
+      "descripcion": "qweq"
     }
   ]
 }

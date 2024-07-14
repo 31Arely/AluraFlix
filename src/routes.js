@@ -17,13 +17,10 @@ function AppRoutes() {
         setVideos((prevVideos) => [...prevVideos, nuevoVideo]);
     };
 
-    const handleDeleteVideo = (id) => {
-        // Implementar la lógica de borrado aquí
-    };
+    
+    const handleDeleteVideo = (id) => {};
 
-    const handleEditVideo = (id) => {
-        // Implementar la lógica de edición aquí
-    };
+    const handleEditVideo = (id) => {};
 
     return (
         <Router>

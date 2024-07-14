@@ -8,7 +8,8 @@ function VideoCard({ video, onDelete, onEdit }) {
             <img 
                 src={video.imagen} 
                 alt={video.titulo} 
-                className={styles.videoThumbnail}
+                //className={`${styles.videoThumbnail} imageStyle`}
+                className={styles.videoThumbnail} 
             />
             <div className={styles.videoInfo}>
                 <h3 className={styles.videoTitle}>{video.titulo}</h3>

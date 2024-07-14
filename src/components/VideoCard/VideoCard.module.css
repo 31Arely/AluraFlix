@@ -1,6 +1,7 @@
 .videoCardContainer {
     position: relative;
-    width: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -8,16 +9,18 @@
     background-color: #1c1c1c;
     border: 4px solid rgb(5, 242, 250);
     margin: 10px;
+    display: inline-block;
+}
+
+.videoThumbnail {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
 }
 
 .videoCardContainer:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.videoThumbnail {
-    width: 100%;
-    height: auto;
 }
 
 .videoInfo {
@@ -27,7 +30,7 @@
 }
 
 .videoTitle {
-    margin: 10px 0;
+    margin: 3px 0;
     font-size: 1.2em;
     line-height: 1.2em;
     color: #fff;

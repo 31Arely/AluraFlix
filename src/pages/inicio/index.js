@@ -4,9 +4,12 @@ import Pie from "../../components/Pie";
 import Banner from "../../components/Banner"; 
 import Titulo from "../../components/Titulo"; 
 import Categorias from "../../components/Categorias"; 
+import ModalEditar from "../../components/ModalEditar.js/ModalEditar"; 
 
 function Inicio() {
     const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:3000/videos')
@@ -29,10 +32,33 @@ function Inicio() {
         .catch(error => console.error('Error deleting video:', error));
     };
 
+    const handleEdit = (video) => {
+        setSelectedVideo(video);
+        setShowModal(true);
+    };
 
-    const handleEdit = (id) => {
-        // Implementar lógica para editar el video
-        console.log('Edit video with id:', id);
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setSelectedVideo(null);
+    };
+
+    const handleSave = (updatedVideo) => {
+        fetch(`http://localhost:3000/videos/${updatedVideo.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedVideo),
+        })
+        .then(response => {
+            if (response.ok) {
+                setVideos(prevVideos => prevVideos.map(video => video.id === updatedVideo.id ? updatedVideo : video));
+                handleCloseModal();
+            } else {
+                console.error('Error updating video');
+            }
+        })
+        .catch(error => console.error('Error updating video:', error));
     };
 
     return (
@@ -44,6 +70,14 @@ function Inicio() {
             </Titulo>
             <Categorias videos={videos} onDelete={handleDelete} onEdit={handleEdit} />
             <Pie />
+            {selectedVideo && (
+                <ModalEditar
+                    show={showModal}
+                    onClose={handleCloseModal}
+                    cardData={selectedVideo}
+                    onSave={handleSave}
+                />
+            )}
         </>
     );
 }

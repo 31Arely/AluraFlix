@@ -45,7 +45,7 @@ function FormularioVideo({ onSubmit }) {
             setVideo("");
             setDescripcion("");
 
-            navigate("/"); // Redirige a la página principal después de guardar
+            navigate("/"); //redirige a Home
         } catch (error) {
             setError(error.message);
         } finally {
